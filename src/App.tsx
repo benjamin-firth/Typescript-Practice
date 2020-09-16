@@ -8,6 +8,15 @@ interface IAppOwnProps {
 
 const App: React.FC<IAppOwnProps> = ({ userType, username }): JSX.Element => {
   const [time, setTime] = useState<Date>(() => new Date(Date.now()));
+  const [message, setMessage] = useState<string>('');
+
+  setInterval(() => {
+    setTime(new Date(Date.now()));
+  }, 1000);
+
+  const handleTextChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    setMessage(event.target.value);
+  };
 
   return (
     <div className="App">
@@ -16,6 +25,15 @@ const App: React.FC<IAppOwnProps> = ({ userType, username }): JSX.Element => {
       </p>
       <p>
         {time.toUTCString()}
+      </p>
+      <input
+        type='text'
+        placeholder='Enter your message here'
+        value={message}
+        onChange={handleTextChange}
+      />
+      <p>
+        Your message: {message || ''}
       </p>
     </div>
   );
