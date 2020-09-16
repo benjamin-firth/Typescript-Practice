@@ -1,7 +1,12 @@
 import React from 'react';
 import './App.css';
 
-const App: React.FC = (): JSX.Element => {
+interface IAppOwnProps {
+  username: string | undefined;
+  userType: 'admin' | 'moderator' | 'user' | 'guest';
+}
+
+const App: React.FC<IAppOwnProps> = ({ userType, username }): JSX.Element => {
   return (
     <div className="App">
       Hi
