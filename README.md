@@ -5,4 +5,5 @@
 ### Notes for follow up learning:
 
 - Look more into generics
+- Look into setInterval()
 
